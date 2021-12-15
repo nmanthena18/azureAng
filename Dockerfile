@@ -26,7 +26,7 @@ RUN npm run build -- --outputPath=./dist --configuration $configuration
 FROM nginx
 
 # Copy the angular build from Stage 1
-COPY --from=build /app/dist/ /usr/share/nginx/html
+COPY --from=build /dist/ /usr/share/nginx/html
 
 # Copy our custom nginx config
 COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
