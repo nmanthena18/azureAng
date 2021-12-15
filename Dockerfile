@@ -1,5 +1,5 @@
 #### Stage 1: Build the angular application
-FROM node as build
+FROM node:14 as build
 
 # Configure the main working directory inside the docker image. 
 # This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
@@ -20,7 +20,7 @@ COPY . ./
 ARG configuration=production
 
 # Build the application
-RUN npm run build -- --outputPath=./dist --configuration $configuration
+RUN npm run build -- --outputPath=./dist --prod
 
 #### Stage 2, use the compiled app, ready for production with Nginx
 FROM nginx
