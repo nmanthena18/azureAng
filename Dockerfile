@@ -20,13 +20,13 @@ COPY . ./
 ARG configuration=production
 
 # Build the application
-RUN npm run build -- --outputPath=./dist --prod
+RUN npm run build --prod
 
 #### Stage 2, use the compiled app, ready for production with Nginx
 FROM nginx
 
 # Copy the angular build from Stage 1
-COPY --from=build /app/dist/ /usr/share/nginx/html
+COPY --from=build /app/dist/azure-deploy /usr/share/nginx/html
 
 # Copy our custom nginx config
 COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
