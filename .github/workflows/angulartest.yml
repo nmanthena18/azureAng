@@ -8,7 +8,7 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-  ANGULAR_IMAGE_NAME: azureAng
+  ANGULAR_IMAGE_NAME: dckangular
   
 jobs:
   build:
