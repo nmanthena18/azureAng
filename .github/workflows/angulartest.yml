@@ -44,7 +44,7 @@ jobs:
         id: nmanthena
         uses: docker/build-push-action@v2
         with:
-          context: ./dckangular
-          file: ./dckangular/Dockerfile
+          context: ./
+          file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.ANGULAR_IMAGE_NAME }}:${{ github.sha }}
