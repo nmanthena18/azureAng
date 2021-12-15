@@ -1,5 +1,5 @@
 #### Stage 1: Build the angular application
-FROM node as build
+FROM node:12.18.1
 
 # Configure the main working directory inside the docker image. 
 # This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
