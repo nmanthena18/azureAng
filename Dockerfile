@@ -4,7 +4,7 @@ FROM node:16
 # Configure the main working directory inside the docker image. 
 # This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
 # commands.
-WORKDIR /app
+WORKDIR /src
 
 # Copy the package.json as well as the package-lock.json and install 
 # the dependencies. This is a separate step so the dependencies 
