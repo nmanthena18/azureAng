@@ -1,10 +1,10 @@
 #### Stage 1: Build the angular application
-FROM node:16
+FROM node:16 as build
 
 # Configure the main working directory inside the docker image. 
 # This is the base directory used in any further RUN, COPY, and ENTRYPOINT 
 # commands.
-WORKDIR /src
+WORKDIR /app
 
 # Copy the package.json as well as the package-lock.json and install 
 # the dependencies. This is a separate step so the dependencies 
@@ -26,7 +26,7 @@ RUN npm run build -- --outputPath=./dist --configuration $configuration
 FROM nginx
 
 # Copy the angular build from Stage 1
-COPY --from=build /dist/ /usr/share/nginx/html
+COPY --from=build /app/dist/ /usr/share/nginx/html
 
 # Copy our custom nginx config
 COPY /nginx-custom.conf /etc/nginx/conf.d/default.conf
