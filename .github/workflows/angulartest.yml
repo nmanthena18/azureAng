@@ -45,6 +45,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./dckangular
-          file: ./azureAng/Dockerfile
+          file: ./dckangular/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.ANGULAR_IMAGE_NAME }}:${{ github.sha }}
